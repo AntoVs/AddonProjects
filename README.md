@@ -26,7 +26,7 @@ This repo contains collection of 2 projects given as a part of AddonCourse
 # git clone https://github.com/AntoVs/AddonProjects.git
 # cd Addon/Todo/
 # python3 -m venv venv
-# source venv/bin/activate ##ur shell
+# source venv/bin/activate.fish #-> ur shell(eg: fish)
 # python app.py
 ```
 #Screenshot
@@ -36,3 +36,7 @@ This repo contains collection of 2 projects given as a part of AddonCourse
 ### Prerequisites
 
 You need **Python 3** and **pip** installed on your system.
+
+```bash
+
+# sudo pacman -S python3  #-> install for arch
