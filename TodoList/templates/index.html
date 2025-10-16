@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stylish To-Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- GitHub logo link -->
+        <a href="https://github.com/AntoVs" target="_blank" class="github-link" title="View on GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon">
+        </a>
+
+        <h1>📝 To-Do List</h1>
+
+        <form action="/add" method="post" class="task-form">
+            <input type="text" name="task" placeholder="Enter a new task" required>
+            <select name="priority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+            </select>
+            <button type="submit">＋</button>
+        </form>
+
+        <ul class="task-list">
+            {% for t in tasks %}
+            <li class="task-item {{ 'done' if t.done else '' }} {{ t.priority|lower }} {{ 'pinned' if t.pinned else '' }}">
+                <div class="task-left">
+                    <a href="/toggle/{{ loop.index0 }}">
+                        <input type="checkbox" {% if t.done %}checked{% endif %} onclick="return false;">
+                    </a>
+                    <span>{{ t.task }}</span>
+                </div>
+
+                <div class="task-right">
+                    <a href="/pin/{{ loop.index0 }}" title="Pin/Unpin" class="pin-btn">{% if t.pinned %}📌{% else %}📍{% endif %}</a>
+                    <span class="priority">{{ t.priority }}</span>
+                    <a href="/delete/{{ loop.index0 }}" class="delete-btn" title="Delete">❌</a>
+                </div>
+            </li>
+            {% else %}
+            <li class="empty">No tasks yet!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
