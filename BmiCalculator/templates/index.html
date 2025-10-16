@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <a href="https://github.com/AntoVs" class="github-link" target="_blank" aria-label="View on GitHub">
+        <i class="fab fa-github fa-2x"></i>
+    </a>
+    
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form method="POST">
+            <label>Height (cm):</label>
+            <input type="number" name="height" required><br>
+            <label>Weight (kg):</label>
+            <input type="number" name="weight" required><br>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if bmi %}
+            <div class="result {{ category|lower }}">
+                <p>Your BMI: {{ "%.2f"|format(bmi) }}</p>
+                <p>Category: {{ category }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding-top: 50px;
+    /* Added: Allows absolute positioning of the icon relative to the body */
+    position: relative; 
+    min-height: 100vh; /* Ensure body covers the viewport for positioning */
+}
+
+/* New CSS for the GitHub Icon */
+.github-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #333; /* Dark color for the icon */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease;
+}
+
+.github-link:hover {
+    color: #0366d6; /* GitHub blue on hover */
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    margin: 5px;
+    padding: 8px;
+    width: 80%;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.result.underweight { background-color: #fdd; color: #a00; }
+.result.normal { background-color: #dfd; color: #0a0; }
+.result.overweight { background-color: #ffd; color: #aa0; }
+.result.obese { background-color: #fbb; color: #a00; }
